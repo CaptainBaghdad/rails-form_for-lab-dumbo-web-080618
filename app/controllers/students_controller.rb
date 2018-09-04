@@ -1,5 +1,5 @@
 class StudentsController < ApplicationController 
-  
+  before_action :set_student, only: [:show, :edit, :update, :destroy]
   def new 
     @student = Student.new 
   end 
@@ -29,6 +29,10 @@ class StudentsController < ApplicationController
   
   def student_params(*args) 
      params.require(:student).permit(*args)
+  end 
+  
+  def set_student
+      @student = Student.find(params[:id])
   end 
   
   
