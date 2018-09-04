@@ -15,6 +15,14 @@ class StudentsController < ApplicationController
      @student  = Student.find(params[:id])
   end 
   
+  def edit 
+    
+  end 
+  
+  def update 
+     @student.update(student_params(:first_name,:last_name))
+  end 
+  
   private 
   
   def student_params(*args) 
